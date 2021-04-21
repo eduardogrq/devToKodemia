@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link  rel="icon"   href="assets/images/favicon.ico" type="image/png" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    
+    <title>DEV Community 🧑‍💻👩‍💻</title>
+</head>
+<body>
+
+    <header>
+        <div class="collapse  w-75 h-full  d-md-none " id="left">
+            <div class="ham-container bgcolor2 bordercolor2">
+                <div class="col-12 mb-2 d-flex justify-content-between align-items-center"> 
+                    <h5 class="mr-3 mt-4">DEV Community</h5>
+                    <button class="navbar-toggler fas fa-times d-sm-none d-flex align-items-center mt-4" type="button" data-toggle="collapse" data-target="#left" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation"></button>
+                </div>
+                <div class="list-group ">
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2 "><img src="assets/icons/homeIcon.svg">  Home</a></button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img src="assets/icons/readingListIcon.svg">  Reading list</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><span class="crayons-icon crayons-icon--default">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="24" height="24" class="">
+                            <g class="nc-icon-wrapper">
+                                <path fill="#FFD983" d="M36 4H14a4 4 0 00-4 4v24H8a4 4 0 000 8h24a4 4 0 004-4V12a4 4 0 000-8z" class=""></path>
+                                <path fill="#E39F3D" d="M12 14h24v-2H14l-2-1z" class=""></path>
+                                <path fill="#FFE8B6" d="M14 4a4 4 0 00-4 4v24.555A3.955 3.955 0 008 32a4 4 0 104 4V11.445c.59.344 1.268.555 2 .555a4 4 0 000-8z" class=""></path>
+                                <path fill="#C1694F" d="M16 8a2 2 0 11-4.001-.001A2 2 0 0116 8m-6 28a2 2 0 11-4.001-.001A2 2 0 0110 36m24-17a1 1 0 01-1 1H15a1 1 0 010-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1" class=""></path>
+                            </g>
+                        </svg>           
+                    </span>Listings</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img src="assets/icons/podcastIcon.svg">  Podcasts</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img src="assets/icons/videosIcon.svg">  Videos</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img src="assets/icons/tagsIcon.svg">  Tags</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><a style="margin-top: 10px; margin-left: 30px;">More...</a></button>
+                </div>
+                  
+                            
+            </div>
+        </div>
+
+        <nav  class="d-flex w-100" >
+            <div class= " lefthead w-100 d-flex a-items-center"> 
+                <button class="navbar-toggler ml-20" type="button" data-toggle="collapse" data-target="#left" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars "></i>
+                </button>
+                
+                <a title="link" class="link ml-20 mr-20" id="logo-nav-img" href="index.html">
+                    <img src="assets/icons/devIcon.svg"  alt="link" style="height: 50px;"  >
+                </a>
+                <input style="width: 300px;" id="search-bar" type="text" placeholder="Search..">
+            </div>
+            <div class=" righthead w-50 d-flex a-items-center jc-flex-end" id="profile-img">
+                <button class="m-sides-10" id="search-button">Write a post</button> 
+                <i class="fas fa-search mr-20" id="search-icon"></i>
+                <img src="assets/icons/notifications.svg" class="mr-20" alt="">
+                <i class="far fa-bell mr-20"></i>
+                <img id="user-nav-img" class="b-radius-100 mr-20" src="assets/images/usuarioLogNav.webp" alt="" style="height: 40px; ">
+                
+                
+            </div>
+        </nav>  
+    </header>
+
+    <div class="container-fluid bgcolor">
+        <div class="row">
+
+            <!--Left aside-->
+            <div class=" d-none d-md-block  col-12  text-right col-md-1 offset-lg-1 p-lg-2  bordercolor" id="left-aside2">
+                <div class="card">   
+                    <div class="card-body heart">
+                        <img src="assets/icons/heart.svg">
+                        <p style="margin-left: 3px;">11</p>
+                    </div>
+                    <div class="card-body unicorn">
+                        <img src="assets/icons/unicorn.svg">
+                        <p style="margin-left: 3px;">33</p>
+                    </div>
+                    <div class="card-body saved">
+                        <img src="assets/icons/saved.svg">
+                        <p style="margin-left: 3px;">52</p>
+                    </div>
+                    <div class="card-body dots">
+                        <i class="fas fa-ellipsis-h"></i> 
+                    </div>
+                </div>
+                
+            </div>
+            <!--END Left aside-->
+
+            <!--Main-->
+            <main class="col-12 col-md-9 col-lg-6 p-0" id="main">
+
+                <div class="col-12 p-0">
+                    <!--Top Nav-->
+
+                    <!--END Top Nav-->
+
+                    <!--CARDS-->
+                    <a href="post.html">
+                        <div class="col-12 d-flex p-0 p-md-2">
+                            <div class="card d-flex w-100">
+                                <img src="https://picsum.photos/800/350" class="card-img-top" style="max-height: 350px;">
+                                <div class="card-body">
+                                
+                                        
+                                    
+                                    <h5 class="card-title pl-5" style="font-size: 2rem;"><b>Getting started with Tailwind and React: Implementing responsiveness.</b></h5>
+                                    <p class="card-text gray-text pl-5" style="font-size: 0.9rem;"><span class="tag-button bg-danger">#Javascript</span> <span class="tag-button bg-dark">#SQL</span> <span class="tag-button bg-success">#Technology</span> <span class="tag-button bg-warning">#JS</span></p>
+
+                                    <div class="media mb-2">
+                                        <img src="https://picsum.photos/seed/picsum/200/300" class="mr-2" alt="Generic placeholder image" style="width: 35px; height: 35px; border-radius: 50%;">
+                                        <div class="media-body">
+                                            <span style=" font-size: 0.8rem;; margin-bottom: 4px;"><b>Yogini Bende</b></span>
+                                            <span class="gray-text" style=" font-size: 0.7rem;  margin-bottom: 5px;">March 15 2021</span>
+
+                                            <p class="mt-5 d-flex text-justify">
+                                                Hello folks,
+
+                                                In my last article, I explained how you can get started with Tailwind and React by creating a simple login form. In that, we started with a bare minimum form structure. In this article, let's work on the same login form and implement responsiveness.
+
+                                                Before we get started, this was the form which we developed earlier -
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus ut iusto officia excepturi animi illum suscipit, obcaecati tempore eum similique aliquid inventore perferendis corrupti consectetur autem. Voluptas, beatae? Fugiat vitae adipisci dolorum distinctio rem laborum assumenda modi nesciunt quasi ab odit enim voluptatem amet non nobis officiis, vero, unde velit veniam veritatis quibusdam corrupti doloremque? Praesentium, eius id minima aut voluptate, voluptates tenetur voluptatem possimus fugiat iure mollitia sit quaerat laborum quisquam velit tempora voluptatum dolores unde. Voluptates debitis dolores molestias exercitationem, veritatis assumenda pariatur aut quaerat fugit voluptatum, earum autem perspiciatis nobis quo sit sunt cupiditate, adipisci temporibus ex ab explicabo itaque iste expedita. Voluptatem autem, accusantium voluptas quam beatae temporibus perspiciatis commodi maxime molestias quae nostrum officiis delectus inventore neque sed! Ducimus dicta itaque eaque pariatur adipisci sit odio cumque repellendus iure sed dolore doloremque laudantium facere, modi molestias, hic nemo dignissimos maxime repellat numquam nulla dolores rerum?
+                                            </p>
+                                            <img src="https://picsum.photos/800/351" class="card-img-top" style="max-height: 350px;">
+
+                                            <p class="mt-5 d-flex text-justify">
+                                                Hello folks,
+
+                                                In my last article, I explained how you can get started with Tailwind and React by creating a simple login form. In that, we started with a bare minimum form structure. In this article, let's work on the same login form and implement responsiveness.
+
+                                                Before we get started, this was the form which we developed earlier -
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus ut iusto officia excepturi animi illum suscipit, obcaecati tempore eum similique aliquid inventore perferendis corrupti consectetur autem. Voluptas, beatae? Fugiat vitae adipisci dolorum distinctio rem laborum assumenda modi nesciunt quasi ab odit enim voluptatem amet non nobis officiis, vero, unde velit veniam veritatis quibusdam corrupti doloremque? Praesentium, eius id minima aut voluptate, voluptates tenetur voluptatem possimus fugiat iure mollitia sit quaerat laborum quisquam velit tempora voluptatum dolores unde. Voluptates debitis dolores molestias exercitationem, veritatis assumenda pariatur aut quaerat fugit voluptatum, earum autem perspiciatis nobis quo sit sunt cupiditate, adipisci temporibus ex ab explicabo itaque iste expedita. Voluptatem autem, accusantium voluptas quam beatae temporibus perspiciatis commodi maxime molestias quae nostrum officiis delectus inventore neque sed! Ducimus dicta itaque eaque pariatur adipisci sit odio cumque repellendus iure sed dolore doloremque laudantium facere, modi molestias, hic nemo dignissimos maxime repellat numquam nulla dolores rerum?
+                                            </p>
+                                            <img src="https://picsum.photos/800/352" class="card-img-top" style="max-height: 350px;">
+
+                                            <p class="mt-5 d-flex text-justify">
+                                                Hello folks,
+
+                                                In my last article, I explained how you can get started with Tailwind and React by creating a simple login form. In that, we started with a bare minimum form structure. In this article, let's work on the same login form and implement responsiveness.
+
+                                                Before we get started, this was the form which we developed earlier -
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus ut iusto officia excepturi animi illum suscipit, obcaecati tempore eum similique aliquid inventore perferendis corrupti consectetur autem. Voluptas, beatae? Fugiat vitae adipisci dolorum distinctio rem laborum assumenda modi nesciunt quasi ab odit enim voluptatem amet non nobis officiis, vero, unde velit veniam veritatis quibusdam corrupti doloremque? Praesentium, eius id minima aut voluptate, voluptates tenetur voluptatem possimus fugiat iure mollitia sit quaerat laborum quisquam velit tempora voluptatum dolores unde. Voluptates debitis dolores molestias exercitationem, veritatis assumenda pariatur aut quaerat fugit voluptatum, earum autem perspiciatis nobis quo sit sunt cupiditate, adipisci temporibus ex ab explicabo itaque iste expedita. Voluptatem autem, accusantium voluptas quam beatae temporibus perspiciatis commodi maxime molestias quae nostrum officiis delectus inventore neque sed! Ducimus dicta itaque eaque pariatur adipisci sit odio cumque repellendus iure sed dolore doloremque laudantium facere, modi molestias, hic nemo dignissimos maxime repellat numquam nulla dolores rerum?
+                                            </p>
+                                            <img src="https://picsum.photos/800/354" class="card-img-top" style="max-height: 350px;">
+
+                                            <p class="mt-5 d-flex text-justify">
+                                                Hello folks,
+
+                                                In my last article, I explained how you can get started with Tailwind and React by creating a simple login form. In that, we started with a bare minimum form structure. In this article, let's work on the same login form and implement responsiveness.
+
+                                                Before we get started, this was the form which we developed earlier -
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus ut iusto officia excepturi animi illum suscipit, obcaecati tempore eum similique aliquid inventore perferendis corrupti consectetur autem. Voluptas, beatae? Fugiat vitae adipisci dolorum distinctio rem laborum assumenda modi nesciunt quasi ab odit enim voluptatem amet non nobis officiis, vero, unde velit veniam veritatis quibusdam corrupti doloremque? Praesentium, eius id minima aut voluptate, voluptates tenetur voluptatem possimus fugiat iure mollitia sit quaerat laborum quisquam velit tempora voluptatum dolores unde. Voluptates debitis dolores molestias exercitationem, veritatis assumenda pariatur aut quaerat fugit voluptatum, earum autem perspiciatis nobis quo sit sunt cupiditate, adipisci temporibus ex ab explicabo itaque iste expedita. Voluptatem autem, accusantium voluptas quam beatae temporibus perspiciatis commodi maxime molestias quae nostrum officiis delectus inventore neque sed! Ducimus dicta itaque eaque pariatur adipisci sit odio cumque repellendus iure sed dolore doloremque laudantium facere, modi molestias, hic nemo dignissimos maxime repellat numquam nulla dolores rerum?
+                                            </p>
+                                            <img src="https://picsum.photos/800/349" class="card-img-top" style="max-height: 350px;">
+                                            
+                                           
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>     
+                            </div>    
+                        </div>
+                    </a>
+
+                    <!--END CARDS-->
+                </div>
+
+            </main>
+            <!--ENDMain-->
+
+            <!--Right aside-->
+            <div class="pt-3 d-none d-lg-block col-lg-3" id="rightAside2">
+                <div class="card rounded-sm">
+                    <div class="bg-dark p-3 rounded-top"></div>
+                    <div class="card-header">
+                        <a class="d-flex">
+                            <span class="mr-2 mb-4"> <img src="assets/images/usuarioPic.jpg" class="rounded-circle mw-100 mb-1" alt=""></span>
+                            <span>Sm0ke</span> 
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-follow btn-md btn-block mb-2">Follow</a>
+                        <span class="card-text d-block">Location</span>
+                        <span class="card-text d-block">Tokyo</span>
+                        <span class="card-text d-block"><small>JOINED</small></span>
+                        <span class="card-text d-block">20 de jul. de 2018</span>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between"> <h5 class="font-weight-bold">More from the DEV team 🌟</h5></div>
+                    <div class="card-body pl-0 pr-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">We need to Fix Anti-Harassment Tooling with Tracy Chou and Chloe Condon</li>
+                            <li class="list-group-item">Join us for #SheCoded 2021!</li>
+                            <li class="list-group-item">Happy Ada Lovelace Day! Tell us about the women who have inspired your coding journey ❤️</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!--END Right aside-->
+
+        </div>
+        
+
+    </div>
+    <footer>
+        <div id="first-div">
+            <a href="">Home</a>
+            <a href="">Reading List</a>
+            <a href="">Listings</a>
+            <a href="">Podcasts</a>
+            <a href="">Videos</a>
+            <a href="">Tags</a>
+            <a href="">Code of Conduct</a>
+            <a href="">FAQ</a>
+        </div>
+        <div>
+            <a href="">DEV Shop</a>
+            <a href="">Sponsors</a>
+            <a href="">About</a>
+            <a href="">Privacy policy</a>
+            <a href="">Terms of use</a>
+            <a href="">Contact</a>
+            <a href="">Write a post</a>
+        </div> <!--Social media seccion-->
+        <div class="social-media">
+            <img src="assets/icons/twitter.svg" alt="">
+            <img src="assets/icons/facebook.svg" alt="">
+            <img src="assets/icons/github.svg" alt="">
+            <img src="assets/icons/instagram.svg" alt="">
+            <img src="assets/icons/twitch.svg" alt="">
+        </div>
+        <div>
+            <p><b>DEV Community</b> – A constructive and inclusive social network for software developers. With you every step of your journey.</p>
+        </div>
+        <div>
+            <p>Built on <b>Forem</b> — the <b>open source</b> software that powers <b>DEV</b> and other inclusive communities.</p>
+        </div>
+        <div><p>Made with love and <b>Ruby on Rails</b>. DEV Community © 2016 - 2021.</p></div>
+        <div> <!--Imagenes del footer-->
+            <img src="assets/images/hojita.svg" alt="">
+        </div>
+        <img class="perezoso" src="assets/images/footerPerezoso.png" alt="">
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>

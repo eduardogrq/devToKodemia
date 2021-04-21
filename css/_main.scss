@@ -1,0 +1,60 @@
+.select-button{
+    width: 80px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: solid 1px lightgray;
+    padding: 5px;
+}
+
+
+#second-navbar{
+    width: 1000px;
+    // display: block;
+    color: $inactive-gray-light;
+    button{
+        &:first-child{
+            border-bottom: solid 3px $highlight-active;
+            &:hover{
+                border-bottom: solid 3px $highlight-active;
+            }
+        }
+        margin: 0px 3px;
+        border: none;
+        width: 60px;
+        height: 40px;
+        border-radius: 5px 5px 0px 0px;
+        font-size: 1rem;
+        transition-duration: 0.5s;
+        &:hover{
+            color: black;
+            background-color: #E1D3FF;
+            cursor: pointer;
+            transition-duration: 0.5s;
+            color: $highlight-active;
+        }
+    }   
+}
+
+.gray-text{
+    color: rgb(114, 114, 114);
+}
+
+.btn-save{
+    background-color: rgb(207, 206, 206);
+    border: none;
+    border-radius: 5px;
+    width: 60px;
+    height: 35px;
+    color: rgb(102, 102, 102);
+    font-size: 0.9rem;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(184, 184, 184);
+    }
+}
+.tag-button{
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}

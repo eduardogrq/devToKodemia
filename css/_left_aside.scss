@@ -1,0 +1,113 @@
+.bgcolor{
+    background: $main-color ;
+}
+.bordercolor{
+    border: 1px solid $main-color ;
+}
+
+.bgcolor2{
+    background: white ;
+}
+.bordercolor2{
+    border: 1px solid white ;
+}
+
+#left-aside{
+    .card{
+        background-color: $main-color;
+        border: 1px solid $main-color;
+        margin-top: 40px;
+        .card-body{
+            padding: 0%;
+            p{
+                color: $highlight-active ;
+                font-size: 1.5rem;
+                margin-left: 20px;
+                
+                
+            }
+    
+        }
+        
+    }
+    .list-group-item-action{
+
+        &:hover {  
+            color: $highlight-color;  
+            border-radius: 7px; 
+            background-color: $asideLeft-active-gray ;    
+        }
+    }
+}
+
+#left-aside2{
+    
+    .card{
+        margin-top: 40px;
+        background-color:$main-color ;
+        border-color: $main-color ;
+        .card-body{
+            height: 70px;
+           
+        }
+
+        .heart{
+            margin-left: auto;
+            
+            
+            img:hover {  
+                color: red;  
+                border-radius: 50%; 
+                border-radius: 10px solid rgb(207,80,105) ;
+                background-color:rgb(207,80,105);
+                cursor: pointer;  
+                
+            }
+
+        }
+        .unicorn{
+            margin-left: auto;
+            
+            img:hover {  
+                  
+                border-radius: 50%; 
+                background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(33,252,223,0.48252804539784666) 0%);
+                cursor: pointer;  
+            }
+
+        }
+        .saved{
+            margin-left: auto;
+            
+            img:hover {  
+                  
+                border-radius: 50%; 
+                background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(33,104,252,0.48252804539784666) 0%); 
+                cursor: pointer;  
+            }
+
+        }
+        .dots{
+            margin-left: auto;
+            margin-right: 5px;
+            
+            
+            i:hover {  
+                 
+                border-radius: 50%; 
+                background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(30,36,48,0.26684177088804273) 0%); 
+                cursor: pointer;  
+            }
+
+        }
+
+        
+    }
+    
+ 
+}
+
+
+
+
+

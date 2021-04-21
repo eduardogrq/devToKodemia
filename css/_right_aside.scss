@@ -1,0 +1,100 @@
+#rightAside{
+    max-width: 333px;
+    @mixin highlight-hover {
+        &:hover{
+            color: $highlight-color;
+            background-color: white ;
+        }
+    }
+    .card{
+        .h-hover {
+            &:hover{
+                color: $highlight-color;
+            } 
+        }
+        .card-header{
+            background-color:$asideRight-bg-color;
+            a{
+                @include highlight-hover;
+            }
+        
+        }
+        .card-body{
+            ul{
+                li{
+                    background-color: $asideRight-bg-color;    
+                    @include highlight-hover;
+                    span{
+                        font-size: smaller;
+                        display: block;
+                        margin-top: 3px;
+                        button{
+                            background-color: $saved-active;
+                            border-color: $saved-active;
+                            color: #F9FAFA;
+                            border-radius: 5px;
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+                
+            }
+        }
+        .btn-share{
+            background-color: $highlight-color;
+            color: white;
+            &:hover{
+                background-color: $highlight-active;
+            }
+        }
+        .btn-see{
+            background-color: $saveBtn-inactive-gray;
+            &:hover{
+                background-color: $saveBtn-active-gray-2;
+            }
+        }
+        .card-footer{
+            background-color:$asideRight-bg-color;
+        }
+    }
+}
+#rightAside2{
+    @mixin highlight-hover {
+        &:hover{
+            color: $highlight-color;
+            background-color: white ;
+        }
+    }
+    .card{
+        .card-header{
+            border-bottom: 0px;
+            a{
+                span:nth-child(1){
+                    width: 48px;
+                    height: 32px;
+                    margin-top:-25px ;
+                
+                }    
+            }
+        }
+        .card-body{
+            ul{
+                li{
+                    background-color: $asideRight-bg-color;    
+                    @include highlight-hover;
+                }
+            }
+            .btn-follow{
+                background-color: $highlight-color;
+                color: white;
+                margin-top: -25px;
+            }
+            
+        }
+    }
+}
+
+
+
+
+
