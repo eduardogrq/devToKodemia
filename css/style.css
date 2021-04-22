@@ -301,6 +301,11 @@ header .fa-bars {
   }
 }
 
+.newDropdown {
+  display: none;
+  position: absolute;
+}
+
 .bgcolor {
   background: #EEF0F1;
 }

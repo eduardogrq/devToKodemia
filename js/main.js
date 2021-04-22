@@ -5,6 +5,7 @@ let fakeUser = {
     userId: 1,
     name: "Israel Salinas",
     imageUrl: "https://media-exp1.licdn.com/dms/image/C4E03AQEKN_uf1kAPMw/profile-displayphoto-shrink_800_800/0/1550176229405?e=1624492800&v=beta&t=eP2Y1gyCpHtVPoB8Gz8lW8IO6G5ZKzSuyORxqB0EKxU",
+    email: "israel@kodemia.mx"
 }
 
 // save users
@@ -37,6 +38,7 @@ let post = {
     content: "adfa asdf asdf asdf asdf",
     title: "primer post",
     imageUrl: "https://picsum.photos/50/50",
+    likes: 6,
 }
 
 // save posts
@@ -140,5 +142,10 @@ const printPosts = postCollection => {
 
 /* ****************************************END POST SECTION ****************************************/
 
+$(document).ready(function(){
+    $("#user-nav-img").hover(function(){
+    $(".newDropdown").slideToggle();
+    });
+});
 
 
