@@ -2,7 +2,7 @@
 
 // fake user
 let fakeUser = {
-    userId: Date.now(),
+    userId: 1,
     name: "Israel Salinas",
     imageUrl: "https://media-exp1.licdn.com/dms/image/C4E03AQEKN_uf1kAPMw/profile-displayphoto-shrink_800_800/0/1550176229405?e=1624492800&v=beta&t=eP2Y1gyCpHtVPoB8Gz8lW8IO6G5ZKzSuyORxqB0EKxU",
 }
@@ -47,6 +47,7 @@ const savePost = postData => {
         data:JSON.stringify( postData ),
         success: response => {
             console.log( response )
+            $(`#addPostForm`)[0].reset();
         },
         error: error => {
             console.log( error )
@@ -69,8 +70,28 @@ const getPosts = () => {
     })
 }
 
+
+
+// traer los datos del FORMULARIO de posts
+const getPostData = () => {
+    let postObject = {}
+    $("#addPostForm input").each( function (){
+         
+        let property = this.name
+        let value = this.value
+        postObject = {...postObject, [property]:value}
+        console.log(this.value)
+        
+    } )
+    postObject = { ...postObject, postId: Date.now(), userId: 1 ,createdDate: moment().format('L')}
+    savePost( postObject )
+}
+
 //imprimir los cards de posts
 getPosts()
+
+//Click para guardar posts
+$("#btnAddPost").click( getPostData )
 
 // Inprimir posts
 const printPosts = postCollection => {

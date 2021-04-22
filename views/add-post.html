@@ -5,31 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link  rel="icon"   href="assets/images/favicon.ico" type="image/png" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 mt-5">
                 <h3 class="text-center">Agregar Nuevo Post</h3>
                 <form class="m-5 border p-5 bg-light" id="addPostForm" >
                     <div class="form-group">
                       <label for="title">Título</label>
-                      <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="">
+                      <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="">
                     </div>
                     <div class="form-group">
                       <label for="content">Contenido</label>
-                      <input type="texto" class="form-control" id="content" placeholder="">
+                      <input type="texto" class="form-control" id="content" name="content" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="coverUrl">Imagen</label>
-                        <input type="texto" class="form-control" id="coverUrl" placeholder="">
+                        <input type="texto" class="form-control" name="imageUrl" id="imageUrl" placeholder="">
                     </div>
-                    <input type="hidden" class="form-control" id="userId" placeholder="">
+                    <!-- <input type="hidden" class="form-control" id="userId" placeholder=""> -->
     
                     <button type="button" class="btn btn-primary" id="btnAddPost">Crear Post</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
