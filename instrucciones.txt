@@ -6,3 +6,6 @@ Activar los filtros de feed, week, month, year, infinity, latest
 Activar el search box, filtrando por título del post
 vista del detalle del post
 agregar comentarios al post ( deben incluir la información del usuario fake )
+
+Endpoint
+https://kodemiaproobs-default-rtdb.firebaseio.com/.json
