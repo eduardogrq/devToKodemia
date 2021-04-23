@@ -304,6 +304,7 @@ header .fa-bars {
 .newDropdown {
   display: none;
   position: absolute;
+  z-index: 100;
 }
 
 .bgcolor {

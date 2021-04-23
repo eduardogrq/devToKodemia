@@ -135,7 +135,7 @@ const printPosts = postCollection => {
             </div>
         `
 
-        $("#postsContainer").append(postCard)
+        $("#postsContainer").prepend(postCard)
         
     })
 }
@@ -149,3 +149,8 @@ $(document).ready(function(){
 });
 
 
+const goAddUser = () => {
+    $(location).attr("href", "/views/add-post.html");
+};
+
+$('#search-button').click(goAddUser);
