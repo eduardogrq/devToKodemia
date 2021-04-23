@@ -264,3 +264,29 @@ const goAddUser = () => {
 $('#search-button').click(goAddUser);
 
 /* ********SEARCH BAR*********** */
+
+$('#search-bar').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        $(location).attr("href", "/views/search.html");
+    }
+    event.stopPropagation();
+});
+
+$(document).ready(function(){
+    $('#search-bar').keyup(function(){
+       var title = $('.card-title');
+       var buscando = $(this).val();
+       var item='';
+       for( var i = 0; i < title.length; i++ ){
+           item = $(title[i]).html().toLowerCase();
+            for(var x = 0; x < item.length; x++ ){
+                if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
+                    $(title[i]).parents('.item').show(); 
+                }else{
+                     $(title[i]).parents('.item').hide();
+                }
+            }
+       }
+    });
+  });

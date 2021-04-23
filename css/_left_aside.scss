@@ -107,6 +107,16 @@
  
 }
 
+.searchSideBar{
+    padding: 8px;
+    color: #202428;
+    font-size: 16px;
+    &:hover{
+        background-color: #D2D6DB;
+        border-radius: 5%;
+        display: block;
+    }
+}
 
 
 

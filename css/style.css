@@ -428,6 +428,18 @@ header .fa-bars {
   cursor: pointer;
 }
 
+.searchSideBar {
+  padding: 8px;
+  color: #202428;
+  font-size: 16px;
+}
+
+.searchSideBar:hover {
+  background-color: #D2D6DB;
+  border-radius: 5%;
+  display: block;
+}
+
 .select-button {
   width: 80px;
   height: 40px;
