@@ -23,12 +23,36 @@ const getInnerPost = (key) => {
       async: false,
     });
     return dbPosts;
+};
+
+// obtener los comentarios
+
+/*get Replies*/
+const getReplies = () => {
+    let dbReplies;
+    $.ajax({
+      method: "GET",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      success: (response) => {
+        //console.log(response)
+        dbReplies = response;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      async: false,
+    });
+  
+    // console.log( d bData )
+    return dbReplies;
   };
+
 
 //Variable que contiene el objeto con el id del post
 let innerPostObject = getInnerPost(postKey)
 
 let printInnerPost = () => {
+
     let {content, createdDate, imageUrl, postId, title, userId } = innerPostObject;
     let postHtml = `
     <div class="card d-flex w-100">
@@ -46,10 +70,25 @@ let printInnerPost = () => {
                     <span style=" font-size: 0.8rem;; margin-bottom: 4px;"><b>Israel Salinas</b></span>
                     <span class="gray-text ml-1" style=" font-size: 0.7rem;  margin-bottom: 5px;">March 15 2021</span>
 
-                    <p class="mt-5 d-flex text-justify">
+                    <p class="mt-5 d-flex text-justify pb-5" style="border-bottom: 1px solid lightgray">
                         ${content}
                     </p>
                     
+                    <!--replies-->
+                        <div class="reply-form mt-5 reply-comment-${postId}">
+                            <form action="">
+                            
+                                <div class="form-group d-flex m-3">
+                                    <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
+                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${postId}">Comentar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-12 d-flex" id="repliesContainer">
+                            
+
+                        </div>
                     
                 </div>
             </div>
@@ -60,7 +99,29 @@ let printInnerPost = () => {
     $("#postInnerContainer").append(postHtml)
 }
 printInnerPost()
-                            
+
+
+//Variable que trae todos los objetos de replies o comentarios
+let replies = getReplies();
+let repliesArray = []
+
+
+//Función para guardar en nuestro arreglo de replies todos los replies que pertenecen a ese post
+for(key in replies){
+    if(replies[key].postId === innerPostObject.postId){
+        repliesArray.push(replies[key])
+    }
+}
+
+let printReplies = (repliesArray) => {
+    repliesArray.forEach(element => {
+        let hache1 = `<p>${element.content}</p>`
+        $("#repliesContainer").append(hache1)
+    });
+}
+// Función para imprimir los replies en el post que se encuentra
+printReplies(repliesArray)
+
 // Función para el dropdown de la imagen del usuario
 $(document).ready(function(){
     $("#user-nav-img").hover(function(){

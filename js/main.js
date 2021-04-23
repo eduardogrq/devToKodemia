@@ -223,6 +223,7 @@ const printPosts = postCollection => {
                         <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${postId}" >
                         <a class="archive text-muted" href="#"></a>
                         </ul>
+
                         <!--replies-->
                         <div class="reply-form reply-comment-${postId}">
                             <form action="">
@@ -232,6 +233,7 @@ const printPosts = postCollection => {
                                 </div>
                             </form>
                         </div>
+                        
                     </div>
                 </div>
             </div>
