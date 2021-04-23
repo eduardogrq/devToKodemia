@@ -139,7 +139,7 @@ const saveReplie = (event) => {
         content: comment,
         creationDate: moment().format("l"),
         creationTime: moment().format("LT"),
-        post: postId
+        postId: postId
       }),
       success: (response) => {
         console.log(response);
@@ -151,7 +151,6 @@ const saveReplie = (event) => {
       },
     });
 };
-
 
 // traer los datos del FORMULARIO de posts
 const getPostData = () => {
@@ -238,10 +237,6 @@ const printPosts = postCollection => {
     $('.btn-save-replie').click(saveReplie);
 
 }
-
-
-
-
 
 /* ****************************************END POST SECTION ****************************************/
 
