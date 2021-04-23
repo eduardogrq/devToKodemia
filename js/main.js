@@ -185,15 +185,15 @@ const conso = () => {
 const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
-    Object.keys( postCollection ).forEach( post => {
+    Object.keys( postCollection ).forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl } = postCollection[post]
-        
-        
+        const image = index === array.length-1 ? `<img src="${imageUrl}">` : "" ;
+
             let postCard  = ` 
             <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
                     <div class="card-body" >
-
+                        ${image}
                         <div class="media mb-2">
                             <img src="${fakeUser.imageUrl}" class="mr-2" alt="Generic placeholder image" style="width: 35px; height: 35px; border-radius: 50%;">
                             <div class="media-body">
