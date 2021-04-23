@@ -131,7 +131,6 @@ const getReplies = () => {
 const saveReplie = (event) => {
     let postId = $(event.target).data("commentkey");
     let comment = $(`.reply-comment-${postId} form div input`).val();
-    let userLogin = getUserLogin();
   
     $.ajax({
       method: "POST",
@@ -140,12 +139,11 @@ const saveReplie = (event) => {
         content: comment,
         creationDate: moment().format("l"),
         creationTime: moment().format("LT"),
-        post: postId,
-        userId: userLogin.userId,
+        postId: postId
       }),
       success: (response) => {
         console.log(response);
-        printReplies(postId);
+        //printReplies(postId);
         $(`.reply-comment-${postId} form`)[0].reset();
       },
       error: (error) => {
@@ -153,7 +151,6 @@ const saveReplie = (event) => {
       },
     });
 };
-
 
 // traer los datos del FORMULARIO de posts
 const getPostData = () => {
@@ -175,6 +172,7 @@ getPosts()
 
 //Click para guardar posts
 $("#btnAddPost").click( getPostData )
+
 
 const conso = () => {
     console.log("hola")
@@ -215,15 +213,15 @@ const printPosts = postCollection => {
                                 <button class="btn-save">Save</button>
                             </div>
                         </div> 
-                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${post.postId}" >
+                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${postId}" >
                         <a class="archive text-muted" href="#"></a>
                         </ul>
                         <!--replies-->
-                        <div class="reply-form reply-comment-${post.postId}">
+                        <div class="reply-form reply-comment-${postId}">
                             <form action="">
                                 <div class="form-group d-flex m-3">
                                     <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
-                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${post.postId}">Comentar</button>
+                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${postId}">Comentar</button>
                                 </div>
                             </form>
                         </div>
@@ -237,13 +235,9 @@ const printPosts = postCollection => {
     }) 
     
     
-    $('.btn-save-replie').click(conso);
+    $('.btn-save-replie').click(saveReplie);
 
 }
-
-
-
-
 
 /* ****************************************END POST SECTION ****************************************/
 

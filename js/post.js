@@ -1,6 +1,13 @@
 const queryString = window.location.search;
 const postKey = new URLSearchParams(queryString).get('postKey');
 
+let fakeUser = {
+    userId: 1,
+    name: "Israel Salinas",
+    imageUrl: "https://media-exp1.licdn.com/dms/image/C4E03AQEKN_uf1kAPMw/profile-displayphoto-shrink_800_800/0/1550176229405?e=1624492800&v=beta&t=eP2Y1gyCpHtVPoB8Gz8lW8IO6G5ZKzSuyORxqB0EKxU",
+    email: "israel@kodemia.mx"
+}
+
 const getInnerPost = (key) => {
     let dbPosts = [];
     $.ajax({
@@ -25,7 +32,7 @@ let printInnerPost = () => {
     let {content, createdDate, imageUrl, postId, title, userId } = innerPostObject;
     let postHtml = `
     <div class="card d-flex w-100">
-        <img src="https://picsum.photos/800/350" class="card-img-top" style="max-height: 350px;">
+        <img src="${imageUrl}" class="card-img-top" style="max-height: 350px;">
         <div class="card-body">
         
                 
@@ -43,8 +50,6 @@ let printInnerPost = () => {
                         ${content}
                     </p>
                     
-                    
-                
                     
                 </div>
             </div>
