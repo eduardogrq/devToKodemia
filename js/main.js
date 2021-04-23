@@ -176,6 +176,7 @@ getPosts()
 //Click para guardar posts
 $("#btnAddPost").click( getPostData )
 
+
 const conso = () => {
     console.log("hola")
 }
