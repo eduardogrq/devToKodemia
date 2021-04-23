@@ -131,7 +131,6 @@ const getReplies = () => {
 const saveReplie = (event) => {
     let postId = $(event.target).data("commentkey");
     let comment = $(`.reply-comment-${postId} form div input`).val();
-    let userLogin = getUserLogin();
   
     $.ajax({
       method: "POST",
@@ -140,12 +139,11 @@ const saveReplie = (event) => {
         content: comment,
         creationDate: moment().format("l"),
         creationTime: moment().format("LT"),
-        post: postId,
-        userId: userLogin.userId,
+        postId: postId
       }),
       success: (response) => {
         console.log(response);
-        printReplies(postId);
+        //printReplies(postId);
         $(`.reply-comment-${postId} form`)[0].reset();
       },
       error: (error) => {
@@ -153,7 +151,6 @@ const saveReplie = (event) => {
       },
     });
 };
-
 
 // traer los datos del FORMULARIO de posts
 const getPostData = () => {
@@ -177,20 +174,23 @@ getPosts()
 $("#btnAddPost").click( getPostData )
 
 
+const conso = () => {
+    console.log("hola")
+}
 
 // Inprimir posts
 const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
-    Object.keys( postCollection ).forEach( post => {
+    Object.keys( postCollection ).forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl } = postCollection[post]
-        
-        
+        const image = index === array.length-1 ? `<img src="${imageUrl}">` : "" ;
+
             let postCard  = ` 
             <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
                     <div class="card-body" >
-
+                        ${image}
                         <div class="media mb-2">
                             <img src="${fakeUser.imageUrl}" class="mr-2" alt="Generic placeholder image" style="width: 35px; height: 35px; border-radius: 50%;">
                             <div class="media-body">
@@ -212,15 +212,15 @@ const printPosts = postCollection => {
                                 <button class="btn-save">Save</button>
                             </div>
                         </div> 
-                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${post.postId}" >
+                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${postId}" >
                         <a class="archive text-muted" href="#"></a>
                         </ul>
                         <!--replies-->
-                        <div class="reply-form reply-comment-${post.postId}">
+                        <div class="reply-form reply-comment-${postId}">
                             <form action="">
                                 <div class="form-group d-flex m-3">
                                     <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
-                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${post.postId}"x>Comentar</button>
+                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${postId}">Comentar</button>
                                 </div>
                             </form>
                         </div>
@@ -232,9 +232,11 @@ const printPosts = postCollection => {
         $("#postsContainer").prepend(postCard)   
         
     }) 
+    
+    
+    $('.btn-save-replie').click(saveReplie);
+
 }
-
-
 
 /* ****************************************END POST SECTION ****************************************/
 
@@ -252,4 +254,3 @@ const goAddUser = () => {
 
 $('#search-button').click(goAddUser);
 
-$('.btn-save-replie').click(console.log('hola'))
