@@ -72,6 +72,87 @@ const getPosts = () => {
     })
 }
 
+// comentarios
+
+let replies = {
+    reply1: {
+      postId: 1,
+      content: "Excelente post!",
+      creationDate: "14/04/2021",
+      creationTime: "19:00",
+    },
+    reply2: {
+      postId: 1,
+      content: "Excelente post!",
+      creationDate: "14/04/2021",
+      creationTime: "19:00",
+    }
+}
+
+const saveReplies = () => {
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        userId: 1,
+        post: 1,
+        content: "Excelente post!",
+        creationDate: "06/04/2021",
+        creationTime: "11:00",
+      }),
+      success: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
+
+const getReplies = () => {
+    let dbReplies;
+    $.ajax({
+      method: "GET",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      success: (response) => {
+        //console.log(response)
+        dbReplies = response;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      async: false,
+    });
+  
+    // console.log( d bData )
+    return dbReplies;
+};
+
+const saveReplie = (event) => {
+    let postId = $(event.target).data("commentkey");
+    let comment = $(`.reply-comment-${postId} form div input`).val();
+    let userLogin = getUserLogin();
+  
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        content: comment,
+        creationDate: moment().format("l"),
+        creationTime: moment().format("LT"),
+        post: postId,
+        userId: userLogin.userId,
+      }),
+      success: (response) => {
+        console.log(response);
+        printReplies(postId);
+        $(`.reply-comment-${postId} form`)[0].reset();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
 
 
 // traer los datos del FORMULARIO de posts
@@ -95,6 +176,10 @@ getPosts()
 //Click para guardar posts
 $("#btnAddPost").click( getPostData )
 
+const conso = () => {
+    console.log("hola")
+}
+
 // Inprimir posts
 const printPosts = postCollection => {
 
@@ -116,7 +201,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5>
+                        <a href="post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
@@ -129,19 +214,39 @@ const printPosts = postCollection => {
                                 <button class="btn-save">Save</button>
                             </div>
                         </div> 
-
+                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${post.postId}" >
+                        <a class="archive text-muted" href="#"></a>
+                        </ul>
+                        <!--replies-->
+                        <div class="reply-form reply-comment-${post.postId}">
+                            <form action="">
+                                <div class="form-group d-flex m-3">
+                                    <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
+                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${post.postId}">Comentar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         `
 
-        $("#postsContainer").prepend(postCard)
+        $("#postsContainer").prepend(postCard)   
         
-    })
+    }) 
+    
+    
+    $('.btn-save-replie').click(conso);
+
 }
+
+
+
+
 
 /* ****************************************END POST SECTION ****************************************/
 
+// Función para el dropdown de la imagen del usuario
 $(document).ready(function(){
     $("#user-nav-img").hover(function(){
     $(".newDropdown").slideToggle();
@@ -154,3 +259,4 @@ const goAddUser = () => {
 };
 
 $('#search-button').click(goAddUser);
+
