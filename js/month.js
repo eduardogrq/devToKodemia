@@ -63,8 +63,19 @@ const getPosts = () => {
         method:"GET",
         url:"https://kodemiaproobs-default-rtdb.firebaseio.com/posts/.json",
         success: response => {
+            let startDate = "03/01/2021";
+            let endDate = "03/31/2021";
+            let filterDate = Object.values(response);
+            let resultFilterData = filterDate.filter(
+                function (a)
+                    {
+                        return (a.createdDate) > startDate && (a.createdDate) < endDate;
+                    });
+            console.log(resultFilterData);
+
             console.log( response )
-            printPosts( response )
+            
+            printPosts( resultFilterData)
         },
         error: error => {
             console.log( error )

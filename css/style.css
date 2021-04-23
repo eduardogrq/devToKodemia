@@ -167,12 +167,6 @@ a:hover {
   margin-top: -25px;
 }
 
-header {
-  /*Tablet version*/
-  /*END Tablet version*/
-  /*Desktop version*/
-  /*END Desktop version*/
-}
 
 header .collapse {
   position: fixed;
@@ -426,13 +420,13 @@ header .fa-bars {
           transition-duration: 0.5s;
 }
 
-#second-navbar button:first-child {
+.b-border{
   border-bottom: solid 3px #323EBE;
 }
 
-#second-navbar button:first-child:hover {
+/*#second-navbar button:first-child:hover {
   border-bottom: solid 3px #323EBE;
-}
+}*/
 
 #second-navbar button:hover {
   color: black;
@@ -441,6 +435,9 @@ header .fa-bars {
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   color: #323EBE;
+}
+.b-border{
+  border-bottom: solid 3px #323EBE;
 }
 
 .gray-text {

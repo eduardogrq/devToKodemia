@@ -63,34 +63,48 @@ const getPosts = () => {
         method:"GET",
         url:"https://kodemiaproobs-default-rtdb.firebaseio.com/posts/.json",
         success: response => {
+            /*filtro de fecha momentaneo*/
+            let startDate = "04/20/2021";
+            let endDate = "04/28/2021";
+            let filterDate = Object.values(response);
+            let resultFilterData = filterDate.filter(
+                function (a)
+                    {
+                        return (a.createdDate) > startDate && (a.createdDate) < endDate;
+                    });
+            console.log(resultFilterData);
+
             console.log( response )
-            printPosts( response )
+            
+            printPosts( resultFilterData)
+            
         },
         error: error => {
             console.log( error )
         }
     })
 }
-
+           
 
 
 // traer los datos del FORMULARIO de posts
 const getPostData = () => {
     let postObject = {}
     $("#addPostForm input").each( function (){
-         
         let property = this.name
         let value = this.value
         postObject = {...postObject, [property]:value}
         console.log(this.value)
-        
     } )
     postObject = { ...postObject, postId: Date.now(), userId: 1 ,createdDate: moment().format('L')}
     savePost( postObject )
+    
 }
 
+ 
 //imprimir los cards de posts
 getPosts()
+
 
 //Click para guardar posts
 $("#btnAddPost").click( getPostData )
@@ -155,4 +169,6 @@ const goAddUser = () => {
 
 $('#search-button').click(goAddUser);
 
-/* ********SEARCH BAR*********** */
+/* ********intentos de filtro por fecha*********** */
+/*let busca = postObject.filter(n => n.createdDate == "04/22/2021")
+    conole.log(busca)*/
