@@ -116,7 +116,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5>
+                        <a href="post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
@@ -142,6 +142,7 @@ const printPosts = postCollection => {
 
 /* ****************************************END POST SECTION ****************************************/
 
+// Función para el dropdown de la imagen del usuario
 $(document).ready(function(){
     $("#user-nav-img").hover(function(){
     $(".newDropdown").slideToggle();
