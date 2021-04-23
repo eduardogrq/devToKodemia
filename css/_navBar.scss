@@ -166,5 +166,30 @@ header{
     display: none;
     position: absolute;
     z-index: 100;
+    background: #fff;
+    border: 2px solid #08090a;
+    box-shadow: 4px 4px 0 #08090a;
+    color: #08090a;
+    border-radius: 5%;
+    overflow: hidden;
+    width: 210px;
+    margin-top: 10px;
+    margin-left: -170px;
 }
 
+.nameUser{
+    font-size: 16px;
+    span{
+        font-size: 14px;
+        color: #7d8a97;
+    }
+}
+
+.list-group-item {
+    
+    border: 0;
+
+    a{
+        font-size: 16px;
+    }
+}

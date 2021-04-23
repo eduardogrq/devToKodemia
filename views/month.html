@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/png" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>DEV Community 👩‍💻🧑‍💻</title>
+</head>
+
+<body>
+
+
+    <!--header-->
+    <header>
+        <div class="collapse  w-75 h-full  d-md-none " id="left">
+            <div class="ham-container bgcolor2 bordercolor2">
+                <div class="col-12 mb-2 d-flex justify-content-between align-items-center">
+                    <h5 class="mr-3 mt-4">DEV Community</h5>
+                    <button class="navbar-toggler fas fa-times d-sm-none d-flex align-items-center mt-4" type="button"
+                        data-toggle="collapse" data-target="#left" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="true" aria-label="Toggle navigation"></button>
+                </div>
+                <div class="list-group ">
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2 "><img
+                            src="/assets/"> Home</a></button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img
+                            src="/assets/icons/readingListIcon.svg"> Reading list</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><span
+                            class="crayons-icon crayons-icon--default">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="24" height="24" class="">
+                                <g class="nc-icon-wrapper">
+                                    <path fill="#FFD983"
+                                        d="M36 4H14a4 4 0 00-4 4v24H8a4 4 0 000 8h24a4 4 0 004-4V12a4 4 0 000-8z"
+                                        class=""></path>
+                                    <path fill="#E39F3D" d="M12 14h24v-2H14l-2-1z" class=""></path>
+                                    <path fill="#FFE8B6"
+                                        d="M14 4a4 4 0 00-4 4v24.555A3.955 3.955 0 008 32a4 4 0 104 4V11.445c.59.344 1.268.555 2 .555a4 4 0 000-8z"
+                                        class=""></path>
+                                    <path fill="#C1694F"
+                                        d="M16 8a2 2 0 11-4.001-.001A2 2 0 0116 8m-6 28a2 2 0 11-4.001-.001A2 2 0 0110 36m24-17a1 1 0 01-1 1H15a1 1 0 010-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1"
+                                        class=""></path>
+                                </g>
+                            </svg>
+                        </span>Listings</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img
+                            src="/assets/icons/podcastIcon.svg"> Podcasts</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img
+                            src="/assets/icons/videosIcon.svg"> Videos</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><img
+                            src="/assets/icons/tagsIcon.svg"> Tags</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor2 bordercolor2"><a
+                            style="margin-top: 10px; margin-left: 30px;">More...</a></button>
+                </div>
+
+
+            </div>
+        </div>
+
+        <nav class="d-flex w-100">
+            <div class=" lefthead w-100 d-flex a-items-center">
+                <button class="navbar-toggler ml-20" type="button" data-toggle="collapse" data-target="#left"
+                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars "></i>
+                </button>
+
+                <a title="link" class="link ml-20 mr-20" id="logo-nav-img" href="index.html">
+                    <img src="/assets/icons/devIcon.svg" alt="link" style="height: 50px;">
+                </a>
+                <input style="width: 300px;" id="search-bar" type="text" placeholder="Search..">
+            </div>
+            <div class=" righthead w-50 d-flex a-items-center jc-flex-end" id="profile-img">
+                <button class="m-sides-10" id="search-button">Write a post</button>
+                <i class="fas fa-search mr-20" id="search-icon"></i>
+                <img src="/assets/icons/notifications.svg" class="mr-20" alt="">
+                <i class="far fa-bell mr-20"></i>
+
+                <div id="profileImage">
+                    <img id="user-nav-img" class="b-radius-100 mr-20" src="/assets/images/usuarioLogNav.webp" alt=""
+                        style="height: 40px; ">
+                    <div class="newDropdown">
+                        <ul class="nameUser border-bottom list-group">
+                            <li><a href="#" class="list-group-item">Israel Salinas <br>
+                                    <span>@israelsalinas</span>
+                                </a></li>
+                        </ul>
+                        <ul class="nameUser border-bottom list-group">
+                            <li class="list-group-item"><a href="#">Dashboard</a></li>
+                            <li class="list-group-item"><a href="#">Moderator Center</a></li>
+                            <li class="list-group-item"><a href="#">Write a Post</a></li>
+                            <li class="list-group-item"><a href="#">Reading list</a></li>
+                            <li class="list-group-item"><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            </div>
+        </nav>
+    </header>
+    <!--END Header-->
+
+    <!-- Menú hover -->
+
+    <!-- <div class="wrapper">
+        <div class="button">
+        <button value="Hover on me!" id="hover">Hover On Me!
+        </button>
+    </div>
+    
+    <div class="dropdown">
+        <ul>
+        <li><a href="#">JavaScript Page</a></li>
+        <li><a href="#">HTML Page</a></li>
+        <li><a href="#">CSS Page</li></a>
+        </ul>
+        </div>
+    </div> -->
+
+
+
+    <div class="container-fluid bgcolor pl-lg-4">
+        <div class="row">
+
+            <!--Left aside-->
+            <div class=" d-none d-md-block col-md-3 col-xl-2 pt-3  offset-xl-1 bordercolor" id="left-aside">
+
+                <div class="list-group bgcolor bordercolor">
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><img
+                            src="/assets/icons/homeIcon.svg"> Home</a></button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><img
+                            src="/assets/icons/readingListIcon.svg"> Reading list</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><span
+                            class="crayons-icon crayons-icon--default">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="24" height="24" class="">
+                                <g class="nc-icon-wrapper">
+                                    <path fill="#FFD983"
+                                        d="M36 4H14a4 4 0 00-4 4v24H8a4 4 0 000 8h24a4 4 0 004-4V12a4 4 0 000-8z"
+                                        class=""></path>
+                                    <path fill="#E39F3D" d="M12 14h24v-2H14l-2-1z" class=""></path>
+                                    <path fill="#FFE8B6"
+                                        d="M14 4a4 4 0 00-4 4v24.555A3.955 3.955 0 008 32a4 4 0 104 4V11.445c.59.344 1.268.555 2 .555a4 4 0 000-8z"
+                                        class=""></path>
+                                    <path fill="#C1694F"
+                                        d="M16 8a2 2 0 11-4.001-.001A2 2 0 0116 8m-6 28a2 2 0 11-4.001-.001A2 2 0 0110 36m24-17a1 1 0 01-1 1H15a1 1 0 010-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1m0 4a1 1 0 01-1 1H15a1 1 0 110-2h18a1 1 0 011 1"
+                                        class=""></path>
+                                </g>
+                            </svg>
+                        </span>Listings</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><img
+                            src="/assets/icons/podcastIcon.svg"> Podcasts</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><img
+                            src="/assets/icons/videosIcon.svg"> Videos</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><img
+                            src="/assets/icons/tagsIcon.svg"> Tags</button>
+                    <button type="button" class="list-group-item list-group-item-action bgcolor bordercolor"><a
+                            style="margin-top: 10px; margin-left: 30px;">More...</a></button>
+                </div>
+
+                <div class="list-group" style="margin-top: 40px;">
+                    <div class="media">
+                        <div class="media-body">
+                            <h6 class="mt-0 mb-3 ml-3"><b>My tags</b></h6>
+                        </div>
+                        <img src="/assets/icons/following_tags.svg" class="ml-3">
+                    </div>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bgcolor bordercolor">#Javascript</button>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bgcolor bordercolor">#python</button>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bgcolor bordercolor">#css</button>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bgcolor bordercolor">#git</button>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bgcolor bordercolor">#vscoden</button>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bgcolor bordercolor">#bash</button>
+                </div>
+                <div class="card">
+                    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Th3frs95--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://thepracticaldev.s3.amazonaws.com/i/a7tz6hpmtwmgx2pe2ch2.jpg"
+                        style="margin-top:15px; max-width: 240px;" loading="lazy">
+                    <div class="card-body mt-0">
+                        <p class="card-text "> <b>DEV Up Your Style</b> </p>
+                    </div>
+                </div>
+            </div>
+            <!--END Left aside-->
+
+            <!--Main-->
+            <main class="col-12 col-md-9 col-lg-6 col-xl-5  p-0" id="main">
+
+                <div class="col-12 p-0">
+                    <!--Top Nav-->
+
+                    <div class="col-12 d-flex">
+                        <div class="col-2 d-flex align-items-center">
+                            <h4><b>Posts</b> </h4>
+                        </div>
+                        <div class="col-10 d-flex justify-content-end align-items-center" style="height: 56px;">
+
+                            <!--Segunda navbar-->
+                            <div id="second-navbar" class="d-none d-md-flex justify-content-end">
+                                <button><a href="../index.html">Feed</a></button>
+                                <button><a href="/views/week.html">Week</a></button>
+                                <button style="border-bottom: solid 3px #323EBE;"><a href="/views/month.html">Month</a></button>
+                                <button><a href="/views/year.html">Year</a></button>
+                                <button><a href="/views/infinity.html">infinity</a></button>
+
+
+                            </div>
+
+                            <select class="select-button d-md-none" name="Feed">
+                                <option value="A">
+                                    Feed
+                                </option>
+                                <option value="B">
+                                    Week
+                                </option>
+                                <option value="C">
+                                    Month
+                                </option>
+                                <option value="D">
+                                    Year
+                                </option>
+                                <option value="E">
+                                    Infinity
+                                </option>
+                                <option value="F">
+                                    Latest
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--END Top Nav-->
+
+                    <!--CARDS-->
+
+
+
+                    <div id="postsContainer">
+
+
+
+                    </div>
+
+
+
+
+                    <!--END CARDS-->
+                </div>
+
+            </main>
+            <!--ENDMain-->
+
+            <!--Right aside-->
+            <div class="pt-3 d-none d-lg-block col-lg-3 pr-md-1 pl-1" id="rightAside">
+                <img src="/assets/images/sheCoded.png" class="card-img">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="font-weight-bold h-hover">Stories (122)</h5>
+                    </div>
+                    <div class="card-body pl-0 pr-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Happy International Women's Day to the Women Building Online
+                                Community 💖</li>
+                            <li class="list-group-item">Nevertheless, HomegirlHacker Coded in 2021</li>
+                            <li class="list-group-item">Nevertheless, Sigute Coded in 2020/2021!</li>
+                            <li class="list-group-item">Resilience is the key to my success</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-share btn-md btn-block">Share your story</a>
+                        <a href="#" class="btn btn-see btn-md btn-block">See all post</a>
+                    </div>
+
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <h5 class="font-weight-bold">Listings</h5> <a>See all</a>
+                    </div>
+                    <div class="card-body pl-0 pr-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">🌟tsParticles - Easily create highly customizable particles
+                                effect for your website🌟</li>
+                            <li class="list-group-item">Weekly update maxMind Free databases available through Github
+                                releases.</li>
+                            <li class="list-group-item">How to do a Device Based Code Spilt in React</li>
+                            <li class="list-group-item">Django 3...2...1...Takeoff! Book</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a class="h-hover">Create a Listing</a>
+
+                    </div>
+
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header d-flex justify-content-between">
+                        <h5 class="font-weight-bold h-hover">#news</h5>
+                    </div>
+                    <div class="card-body pl-0 pr-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">OVH Strasbourg: Halt and Catch Fire, Data Uploaded to the Cloud
+                                <span><button>New</button></span>
+                            </li>
+                            <li class="list-group-item">AI ML DAtas students opportunity with Sky Hub
+                                <span><button>New</button></span>
+                            </li>
+                            <li class="list-group-item">Game Dev Digest - Issue #85 - Platforms, Performance, and
+                                Tutorials <span><button>New</button></span></li>
+                            <li class="list-group-item">Flutter 2.0 con Null safety <span>comments</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--END Right aside-->
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="/js/month.js"></script>
+</body>
+
+</html>
