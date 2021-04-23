@@ -262,7 +262,4 @@ const goAddUser = () => {
 
 $('#search-button').click(goAddUser);
 
-<<<<<<< HEAD
 /* ********SEARCH BAR*********** */
-=======
->>>>>>> 653f190910ef74bbcd54c57f5a45e1517af520d5
