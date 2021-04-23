@@ -63,8 +63,15 @@ const getPosts = () => {
         method:"GET",
         url:"https://kodemiaproobs-default-rtdb.firebaseio.com/posts/.json",
         success: response => {
-            console.log( response )
-            printPosts( response )
+            let  postArray= Object.keys(response).map( post =>{
+                return {
+                    ...response[post],
+                    likes: response[post].likes || 0
+                }
+                
+            })
+            postArray =postArray.sort((x,y) =>  x.likes - y.likes)
+            printPosts( postArray )
         },
         error: error => {
             console.log( error )
@@ -182,8 +189,8 @@ const conso = () => {
 const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
-    Object.keys( postCollection ).forEach( (post, index, array ) => {
-        let { postId, userId, content, title, createdDate, imageUrl } = postCollection[post]
+    postCollection.forEach( (post, index, array ) => {
+        let { postId, userId, content, title, createdDate, imageUrl, likes } = post
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
@@ -205,7 +212,7 @@ const printPosts = postCollection => {
                             <div class="col-12 d-flex">
                                 
                             <div class="col-4 col-md-8 d-flex align-items-center">
-                                <i class="gray-text far fa-heart pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">25 reactions</span>
+                                <i class="gray-text far fa-heart pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">${likes} reactions</span>
                                 <i class="gray-text far fa-comment pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">4 comments</span>
                             </div>
                             <div class="col-8 col-md-4 d-flex justify-content-end align-items-center">
