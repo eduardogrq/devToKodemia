@@ -176,7 +176,9 @@ getPosts()
 //Click para guardar posts
 $("#btnAddPost").click( getPostData )
 
-
+const conso = () => {
+    console.log("hola")
+}
 
 // Inprimir posts
 const printPosts = postCollection => {
@@ -220,7 +222,7 @@ const printPosts = postCollection => {
                             <form action="">
                                 <div class="form-group d-flex m-3">
                                     <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
-                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${post.postId}"x>Comentar</button>
+                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${post.postId}">Comentar</button>
                                 </div>
                             </form>
                         </div>
@@ -232,7 +234,13 @@ const printPosts = postCollection => {
         $("#postsContainer").prepend(postCard)   
         
     }) 
+    
+    
+    $('.btn-save-replie').click(conso);
+
 }
+
+
 
 
 
@@ -251,4 +259,3 @@ const goAddUser = () => {
 
 $('#search-button').click(goAddUser);
 
-$('.btn-save-replie').click(console.log('hola'))
