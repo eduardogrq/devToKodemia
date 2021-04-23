@@ -110,7 +110,7 @@ $("#btnAddPost").click( getPostData )
 const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
-    Object.keys( postCollection ).forEach( post => {
+    /*Object.keys( postCollection ).forEach( post => {
         let { postId, userId, content, title, createdDate, imageUrl } = postCollection[post]
         
         
@@ -141,6 +141,53 @@ const printPosts = postCollection => {
                             </div>
                         </div> 
 
+                    </div>
+                </div>
+            </div>
+        `*/
+        postCollection.forEach( (post, index, array ) => {
+        let { postId, userId, content, title, createdDate, imageUrl, likes } = post
+        const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
+
+            let postCard  = ` 
+            <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
+                <div class="card d-flex w-100">
+                    ${image}
+                    <div class="card-body" >
+                        
+                        <div class="media mb-2">
+                            <img src="${fakeUser.imageUrl}" class="mr-2" alt="Generic placeholder image" style="width: 35px; height: 35px; border-radius: 50%;">
+                            <div class="media-body">
+                                <span style=" font-size: 0.8rem; display: block; margin-bottom: 4px;"><b>${fakeUser.name}</b></span>
+                                <span class="gray-text" style=" font-size: 0.7rem; display: block; margin-bottom: 5px;">${createdDate}</span>
+                            </div>
+                        </div>
+
+                        <a href="../post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                            <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
+                            <div class="col-12 d-flex">
+                                
+                            <div class="col-4 col-md-8 d-flex align-items-center">
+                                <i class="gray-text far fa-heart pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">${likes} reactions</span>
+                                <i class="gray-text far fa-comment pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">4 comments</span>
+                            </div>
+                            <div class="col-8 col-md-4 d-flex justify-content-end align-items-center">
+                                <span class="gray-text pr-2" style="font-size: 0.7rem;">4 min read</span>
+                                <button class="btn-save">Save</button>
+                            </div>
+                        </div> 
+                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${postId}" >
+                        <a class="archive text-muted" href="#"></a>
+                        </ul>
+                        <!--replies-->
+                        <div class="reply-form reply-comment-${postId}">
+                            <form action="">
+                                <div class="form-group d-flex m-3">
+                                    <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
+                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${postId}">Comentar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
