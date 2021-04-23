@@ -164,12 +164,10 @@ const saveReplie = (event) => {
 const getPostData = () => {
     let postObject = {}
     $("#addPostForm input").each( function (){
-         
         let property = this.name
         let value = this.value
         postObject = {...postObject, [property]:value}
         console.log(this.value)
-        
     } )
     postObject = { ...postObject, postId: Date.now(), userId: 1 ,createdDate: moment().format('L')}
     savePost( postObject )
