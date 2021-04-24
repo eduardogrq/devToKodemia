@@ -63,19 +63,24 @@ const getPosts = () => {
         method:"GET",
         url:"https://kodemiaproobs-default-rtdb.firebaseio.com/posts/.json",
         success: response => {
+            let  postArray= Object.keys(response).map( post =>{
+                return {
+                    ...response[post],
+                    likes: response[post].likes || 0
+                }
+                
+            })
             let startDate = "01/01/2021";
-            let endDate = "12/30/2021";
+            let endDate = "12/31/2021";
             let filterDate = Object.values(response);
             let resultFilterData = filterDate.filter(
                 function (a)
                     {
                         return (a.createdDate) > startDate && (a.createdDate) < endDate;
                     });
-            console.log(resultFilterData);
-
-            console.log( response )
-            
-            printPosts( resultFilterData)
+            postArray =postArray.sort((x,y) =>  x.likes - y.likes)
+            console.log
+            printPosts( resultFilterData, postArray)
         },
         error: error => {
             console.log( error )
@@ -83,7 +88,85 @@ const getPosts = () => {
     })
 }
 
+// comentarios
 
+let replies = {
+    reply1: {
+      postId: 1,
+      content: "Excelente post!",
+      creationDate: "14/04/2021",
+      creationTime: "19:00",
+    },
+    reply2: {
+      postId: 1,
+      content: "Excelente post!",
+      creationDate: "14/04/2021",
+      creationTime: "19:00",
+    }
+}
+
+const saveReplies = () => {
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        userId: 1,
+        post: 1,
+        content: "Excelente post!",
+        creationDate: "06/04/2021",
+        creationTime: "11:00",
+      }),
+      success: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
+
+const getReplies = () => {
+    let dbReplies;
+    $.ajax({
+      method: "GET",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      success: (response) => {
+        //console.log(response)
+        dbReplies = response;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      async: false,
+    });
+  
+    // console.log( d bData )
+    return dbReplies;
+};
+
+const saveReplie = (event) => {
+    let postId = $(event.target).data("commentkey");
+    let comment = $(`.reply-comment-${postId} form div input`).val();
+  
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        content: comment,
+        creationDate: moment().format("l"),
+        creationTime: moment().format("LT"),
+        postId: postId
+      }),
+      success: (response) => {
+        console.log(response);
+        //printReplies(postId);
+        $(`.reply-comment-${postId} form`)[0].reset();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
 
 // traer los datos del FORMULARIO de posts
 const getPostData = () => {
@@ -105,6 +188,11 @@ getPosts()
 
 //Click para guardar posts
 $("#btnAddPost").click( getPostData )
+
+
+const conso = () => {
+    console.log("hola")
+}
 
 // Inprimir posts
 const printPosts = postCollection => {
@@ -128,7 +216,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <a href="../post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                        <a href="post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
@@ -158,14 +246,18 @@ const printPosts = postCollection => {
             </div>
         `
 
-
-        $("#postsContainer").prepend(postCard)
+        $("#postsContainer").prepend(postCard)   
         
-    })
+    }) 
+    
+    
+    $('.btn-save-replie').click(saveReplie);
+
 }
 
 /* ****************************************END POST SECTION ****************************************/
 
+// Función para el dropdown de la imagen del usuario
 $(document).ready(function(){
     $("#user-nav-img").hover(function(){
     $(".newDropdown").slideToggle();
