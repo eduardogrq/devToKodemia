@@ -190,10 +190,10 @@ const printPosts = postCollection => {
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key} = post
-        const image = index === array.length-1 ? `<img class="mw-100 border-radius-0 imgPost" src="${imageUrl}">` : "" ;
+        const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
-            <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
+            <div class="item col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
                     ${image}
                     <div class="card-body" >
@@ -206,7 +206,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <a href="post.html?postKey=${key}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                        <a href="post.html?postKey=${key}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b class="title">${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
@@ -219,18 +219,7 @@ const printPosts = postCollection => {
                                 <button class="btn-save">Save</button>
                             </div>
                         </div> 
-                        <ul class="replies-wrapper bg-light p-3" id="replies-wrapper-${postId}" >
-                        <a class="archive text-muted" href="#"></a>
-                        </ul>
-                        <!--replies-->
-                        <div class="reply-form reply-comment-${postId}">
-                            <form action="">
-                                <div class="form-group d-flex m-3">
-                                    <input type="text" class="form-control comment-input" placeholder="Escribe un comentario">
-                                    <button type="button" class="btn btn-primary btn-save-replie" data-commentkey="${postId}">Comentar</button>
-                                </div>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -266,25 +255,25 @@ $('#search-button').click(goAddUser);
 $('#search-bar').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
-        $(location).attr("href", "/views/search.html");
+        $(location).attr("href", "./views/search.html");
     }
     event.stopPropagation();
 });
 
 $(document).ready(function(){
     $('#search-bar').keyup(function(){
-       var title = $('.card-title');
+       var title = $('.title');
        var buscando = $(this).val();
        var item='';
        for( var i = 0; i < title.length; i++ ){
            item = $(title[i]).html().toLowerCase();
-            for(var x = 0; x < item.length; x++ ){
-                if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
-                    $(title[i]).parents('.item').show(); 
-                }else{
-                     $(title[i]).parents('.item').hide();
-                }
+           console.log( $(title[i]).parents('.item'));
+            if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
+                $(title[i]).parents('.item').show(); 
+            }else{
+                $(title[i]).parents('.item').hide(); 
             }
+            
        }
     });
   });

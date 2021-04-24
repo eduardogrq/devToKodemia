@@ -203,7 +203,7 @@ const printPosts = postCollection => {
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
-            <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
+            <div class="item col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
                     ${image}
                     <div class="card-body" >
@@ -216,7 +216,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <a href="post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                        <a href="post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b class="title">${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
