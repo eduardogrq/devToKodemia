@@ -117,25 +117,6 @@ const saveReplies = () => {
     });
 };
 
-const getReplies = () => {
-    let dbReplies;
-    $.ajax({
-      method: "GET",
-      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
-      success: (response) => {
-        //console.log(response)
-        dbReplies = response;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-      async: false,
-    });
-  
-    // console.log( d bData )
-    return dbReplies;
-};
-
 const saveReplie = (event) => {
     let postId = $(event.target).data("commentkey");
     let comment = $(`.reply-comment-${postId} form div input`).val();
@@ -184,12 +165,34 @@ const conso = () => {
     console.log("hola")
 }
 
-// Inprimir posts
+const getReplies = (id) => {
+    let comments = []
+    $.ajax({
+      method: "GET",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      success: (response) => {
+        Object.keys( response ).forEach(key2 => {
+            comments.push(response[key2])
+        })
+        comments = comments.filter(x => x.postId == id)
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      async: false,
+    });
+  
+    // console.log( d bData )
+    return comments.length;
+  };
+
+// Imprimir posts
 const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key} = post
+        const numComments = getReplies(postId)
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
@@ -212,7 +215,7 @@ const printPosts = postCollection => {
                                 
                             <div class="col-4 col-md-8 d-flex align-items-center">
                                 <i class="gray-text far fa-heart pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">${likes} reactions</span>
-                                <i class="gray-text far fa-comment pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">4 comments</span>
+                                <i class="gray-text far fa-comment pl-4"></i><span class="d-none d-md-block pl-2 gray-text" style="font-size: 0.85rem;">${numComments} comments</span>
                             </div>
                             <div class="col-8 col-md-4 d-flex justify-content-end align-items-center">
                                 <span class="gray-text pr-2" style="font-size: 0.7rem;">4 min read</span>
