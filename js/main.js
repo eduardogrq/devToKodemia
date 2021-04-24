@@ -190,7 +190,7 @@ const printPosts = postCollection => {
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key} = post
-        const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
+        const image = index === array.length-1 ? `<img class="mw-100 border-radius-0 imgPost" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
             <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">

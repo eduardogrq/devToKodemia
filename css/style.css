@@ -507,6 +507,10 @@ header .fa-bars {
   padding: 5px;
 }
 
+.imgPost {
+  max-height: 320px;
+}
+
 footer {
   padding: 50px 0px;
   display: none;
