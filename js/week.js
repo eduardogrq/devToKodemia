@@ -1,3 +1,4 @@
+
 /* ****************************************USERS SECTION ****************************************/
 
 // fake user
@@ -71,27 +72,14 @@ const getPosts = () => {
                 }
                 
             })
-            let startDate = "04/21/2021";
-            let endDate = "04/28/2021";
-            let filterDate = Object.values(response);
-            let resultFilterData = filterDate.filter(
-                function (a)
-                    {
-                        return (a.createdDate) > startDate && (a.createdDate) < endDate;
-                    });
             postArray = postArray.sort((x,y) =>  x.likes - y.likes)
-            //let filterObjt = Object.assign({}, resultFilterData)
-            //console.log(filterObjt)
+            
             printPosts(postArray)
         },
         error: error => {
             console.log( error )
         }
-    
-        
     })
-
-    
 }
 
 // comentarios
@@ -110,45 +98,6 @@ let replies = {
       creationTime: "19:00",
     }
 }
-
-const saveReplies = () => {
-    $.ajax({
-      method: "POST",
-      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
-      data: JSON.stringify({
-        userId: 1,
-        post: 1,
-        content: "Excelente post!",
-        creationDate: "06/04/2021",
-        creationTime: "11:00",
-      }),
-      success: (response) => {
-        console.log(response);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-    });
-};
-
-const getReplies = () => {
-    let dbReplies;
-    $.ajax({
-      method: "GET",
-      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
-      success: (response) => {
-        //console.log(response)
-        dbReplies = response;
-      },
-      error: (error) => {
-        console.log(error);
-      },
-      async: false,
-    });
-  
-    // console.log( d bData )
-    return dbReplies;
-};
 
 const saveReplie = (event) => {
     let postId = $(event.target).data("commentkey");
@@ -200,16 +149,39 @@ const conso = () => {
     console.log("hola")
 }
 
+const getReplies = (id) => {
+    let comments = []
+    $.ajax({
+      method: "GET",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      success: (response) => {
+        Object.keys( response ).forEach(key2 => {
+            comments.push(response[key2])
+        })
+        comments = comments.filter(x => x.postId == id)
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      async: false,
+    });
+  
+    // console.log( d bData )
+    return comments.length;
+  };
 
 
-// Imprimir posts
+// Inprimir posts
 const printPosts = postCollection => {
+
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
-        
+        const numComments = getReplies(postId)
+        let startDate = "04/21/2021";
+        let endDate = "04/28/2021";
+        if ((post.createdDate) > startDate && (post.createdDate) < endDate){
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
-
             let postCard  = ` 
             <div class="item col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
@@ -242,7 +214,8 @@ const printPosts = postCollection => {
                 </div>
             </div>
         `
-        $("#postsContainer").prepend(postCard)   
+
+        $("#postsContainer").prepend(postCard)}
         
     }) 
     
@@ -250,8 +223,6 @@ const printPosts = postCollection => {
     $('.btn-save-replie').click(saveReplie);
 
 }
-
-  
 
 /* ****************************************END POST SECTION ****************************************/
 
@@ -270,8 +241,28 @@ const goAddUser = () => {
 $('#search-button').click(goAddUser);
 
 /* ********SEARCH BAR*********** */
+$('#search-bar').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+        $(location).attr("href", "/views/search.html");
+    }
+    event.stopPropagation();
+});
 
-   /*if (post.createdDate != "04/23/2021"){
-    $("#flt").addClass("d-none");
-}*/
-
+$(document).ready(function(){
+    $('#search-bar').keyup(function(){
+       var title = $('.title');
+       var buscando = $(this).val();
+       var item='';
+       for( var i = 0; i < title.length; i++ ){
+           item = $(title[i]).html().toLowerCase();
+           console.log( $(title[i]).parents('.item'));
+            if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
+                $(title[i]).parents('.item').show(); 
+            }else{
+                $(title[i]).parents('.item').hide(); 
+            }
+            
+       }
+    });
+  });
