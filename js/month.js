@@ -178,8 +178,8 @@ const printPosts = postCollection => {
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
         const numComments = getReplies(postId)
-        let startDate = "03/01/2021";
-        let endDate = "03/30/2021";
+        let startDate = (moment().subtract(60,'days').format("MM/DD/YYYY"));
+        let endDate = (moment().subtract(30,'days').format("MM/DD/YYYY"));
         if ((post.createdDate) > startDate && (post.createdDate) < endDate){
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
             let postCard  = ` 

@@ -173,13 +173,14 @@ const getReplies = (id) => {
 
 // Inprimir posts
 const printPosts = postCollection => {
-
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
         const numComments = getReplies(postId)
-        let startDate = "01/01/2021";
-        let endDate = "12/30/2021";
+        let startDate = (moment().subtract(2,'years').format("MM/DD/YYYY"));
+        let endDate = (moment().subtract(1, "years").format("MM/DD/YYYY"))
+        const durEnd =() =>{endDate.moment([2020, 11, 31]).add(duration).format("MM/DD/YYYY");}
+        const durStart = () => {startDate.moment([2019, 11, 31]).add(duration).format("MM/DD/YYYY");}
         if ((post.createdDate) > startDate && (post.createdDate) < endDate){
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
             let postCard  = ` 
