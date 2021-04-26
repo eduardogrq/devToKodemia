@@ -115,6 +115,7 @@ for(key in replies){
 }
 
 let printReplies = (repliesArray) => {
+    $("#repliesContainer").empty()// se limpia contenedor de comentarios
     repliesArray.forEach(element => {
         let repliesContent = `
         <div class="d-flex col-12 mb-3">
@@ -141,3 +142,39 @@ $(document).ready(function(){
     $(".newDropdown").slideToggle();
     });
 });
+
+const saveReplie = (event) => {
+    let postId = $(event.target).data("commentkey");
+    let comment = $(`.reply-comment-${postId} form div input`).val();
+  
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        content: comment,
+        creationDate: moment().format("l"),
+        creationTime: moment().format("LT"),
+        postId: postId
+      }),
+      success: (response) => {
+        $(`.reply-comment-${postId} form`)[0].reset();// limpia cajja de comentario
+        let replies = getReplies();// obtiene todos los comentario sde nuevo
+
+        //rellenamos array con objeto de comentarios
+        repliesArray = [];
+        for(key in replies){
+            if(replies[key].postId === innerPostObject.postId){
+                repliesArray.push(replies[key])
+            }
+        }
+        //imprimos de nuevo array de comentrios 
+        printReplies(repliesArray)
+
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
+
+$('.btn-save-replie').click(saveReplie);
