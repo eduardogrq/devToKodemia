@@ -66,7 +66,7 @@ const getPosts = () => {
             let  postArray= Object.keys(response).map( post =>{
                 return {
                     ...response[post],
-                    likes: response[post].likes || 0
+                    likes: response[post].likes || 0, key: post
                 }
                 
             })
@@ -199,7 +199,7 @@ const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
-        let { postId, userId, content, title, createdDate, imageUrl, likes } = post
+        let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
@@ -216,7 +216,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <a href="../post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                        <a href="../post.html?postKey=${key}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
