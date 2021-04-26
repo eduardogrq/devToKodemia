@@ -72,6 +72,7 @@ const getPosts = () => {
                 
             })
             postArray =postArray.sort((x,y) =>  x.likes - y.likes)
+            console.log(postArray)
             printPosts( postArray )
         },
         error: error => {

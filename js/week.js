@@ -71,7 +71,7 @@ const getPosts = () => {
                 }
                 
             })
-            let startDate = "04/20/2021";
+            let startDate = "04/21/2021";
             let endDate = "04/28/2021";
             let filterDate = Object.values(response);
             let resultFilterData = filterDate.filter(
@@ -79,14 +79,19 @@ const getPosts = () => {
                     {
                         return (a.createdDate) > startDate && (a.createdDate) < endDate;
                     });
-            postArray =postArray.sort((x,y) =>  x.likes - y.likes)
-            console.log
-            printPosts( postArray)
+            postArray = postArray.sort((x,y) =>  x.likes - y.likes)
+            //let filterObjt = Object.assign({}, resultFilterData)
+            //console.log(filterObjt)
+            printPosts(postArray)
         },
         error: error => {
             console.log( error )
         }
+    
+        
     })
+
+    
 }
 
 // comentarios
@@ -195,12 +200,14 @@ const conso = () => {
     console.log("hola")
 }
 
-// Inprimir posts
-const printPosts = postCollection => {
 
+
+// Imprimir posts
+const printPosts = postCollection => {
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
+        
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
@@ -235,7 +242,6 @@ const printPosts = postCollection => {
                 </div>
             </div>
         `
-
         $("#postsContainer").prepend(postCard)   
         
     }) 
@@ -244,6 +250,8 @@ const printPosts = postCollection => {
     $('.btn-save-replie').click(saveReplie);
 
 }
+
+  
 
 /* ****************************************END POST SECTION ****************************************/
 
@@ -262,3 +270,8 @@ const goAddUser = () => {
 $('#search-button').click(goAddUser);
 
 /* ********SEARCH BAR*********** */
+
+   /*if (post.createdDate != "04/23/2021"){
+    $("#flt").addClass("d-none");
+}*/
+

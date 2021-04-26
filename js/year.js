@@ -82,7 +82,7 @@ const getPosts = () => {
                     });
             postArray =postArray.sort((x,y) =>  x.likes - y.likes)
             console.log
-            printPosts( postArray)
+            printPosts(resultFilterData, postArray)
         },
         error: error => {
             console.log( error )

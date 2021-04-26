@@ -72,7 +72,7 @@ const getPosts = () => {
                 
             })
             let startDate = "03/01/2021";
-            let endDate = "04/30/2021";
+            let endDate = "03/30/2021";
             let filterDate = Object.values(response);
             let resultFilterData = filterDate.filter(
                 function (a)
@@ -81,7 +81,7 @@ const getPosts = () => {
                     });
             postArray =postArray.sort((x,y) =>  x.likes - y.likes)
             console.log
-            printPosts( postArray)
+            printPosts( resultFilterData, postArray)
         },
         error: error => {
             console.log( error )
