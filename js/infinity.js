@@ -99,6 +99,26 @@ let replies = {
     }
 }
 
+const saveReplies = () => {
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        userId: 1,
+        post: 1,
+        content: "Excelente post!",
+        creationDate: "06/04/2021",
+        creationTime: "11:00",
+      }),
+      success: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
+
 const saveReplie = (event) => {
     let postId = $(event.target).data("commentkey");
     let comment = $(`.reply-comment-${postId} form div input`).val();
@@ -251,18 +271,18 @@ $('#search-bar').keypress(function(event){
 
 $(document).ready(function(){
     $('#search-bar').keyup(function(){
-       var title = $('.title');
+       var titles = $('.title');
+       //donde guardo lo escrito en el input
        var buscando = $(this).val();
-       var item='';
-       for( var i = 0; i < title.length; i++ ){
-           item = $(title[i]).html().toLowerCase();
-           console.log( $(title[i]).parents('.item'));
-            if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
-                $(title[i]).parents('.item').show(); 
-            }else{
-                $(title[i]).parents('.item').hide(); 
+       var titlesToArray = titles.toArray()
+       
+       titlesToArray.forEach( (title) => {
+           
+            if (title.textContent.toLowerCase() == buscando.toLowerCase() || title.textContent.toLowerCase().indexOf(buscando)>= 0){
+                $(title).parents('.item').show(); 
+                }else{
+                    $(title).parents('.item').hide();   
             }
-            
-       }
+       })
     });
-  });
+});

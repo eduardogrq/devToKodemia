@@ -99,6 +99,26 @@ let replies = {
     }
 }
 
+const saveReplies = () => {
+    $.ajax({
+      method: "POST",
+      url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
+      data: JSON.stringify({
+        userId: 1,
+        post: 1,
+        content: "Excelente post!",
+        creationDate: "06/04/2021",
+        creationTime: "11:00",
+      }),
+      success: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+};
+
 const saveReplie = (event) => {
     let postId = $(event.target).data("commentkey");
     let comment = $(`.reply-comment-${postId} form div input`).val();
@@ -177,8 +197,8 @@ const printPosts = postCollection => {
     postCollection.forEach( (post, index, array ) => {
         let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
         const numComments = getReplies(postId)
-        let startDate = (moment().subtract(2,'years').format("MM/DD/YYYY"));
-        let endDate = (moment().subtract(1, "years").format("MM/DD/YYYY"))
+        let startDate = (moment().subtract(90,'days').format("MM/DD/YYYY"));
+        let endDate = (moment().subtract(60, "days").format("MM/DD/YYYY"))
         const durEnd =() =>{endDate.moment([2020, 11, 31]).add(duration).format("MM/DD/YYYY");}
         const durStart = () => {startDate.moment([2019, 11, 31]).add(duration).format("MM/DD/YYYY");}
         if ((post.createdDate) > startDate && (post.createdDate) < endDate){
@@ -252,18 +272,18 @@ $('#search-bar').keypress(function(event){
 
 $(document).ready(function(){
     $('#search-bar').keyup(function(){
-       var title = $('.title');
+       var titles = $('.title');
+       //donde guardo lo escrito en el input
        var buscando = $(this).val();
-       var item='';
-       for( var i = 0; i < title.length; i++ ){
-           item = $(title[i]).html().toLowerCase();
-           console.log( $(title[i]).parents('.item'));
-            if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
-                $(title[i]).parents('.item').show(); 
-            }else{
-                $(title[i]).parents('.item').hide(); 
+       var titlesToArray = titles.toArray()
+       
+       titlesToArray.forEach( (title) => {
+           
+            if (title.textContent.toLowerCase() == buscando.toLowerCase() || title.textContent.toLowerCase().indexOf(buscando)>= 0){
+                $(title).parents('.item').show(); 
+                }else{
+                    $(title).parents('.item').hide();   
             }
-            
-       }
+       })
     });
-  });
+});
