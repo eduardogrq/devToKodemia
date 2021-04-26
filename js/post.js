@@ -34,7 +34,7 @@ const getReplies = () => {
       method: "GET",
       url: "https://kodemiaproobs-default-rtdb.firebaseio.com/replies/.json",
       success: (response) => {
-        //console.log(response)
+        // console.log(response)
         dbReplies = response;
       },
       error: (error) => {
@@ -43,7 +43,7 @@ const getReplies = () => {
       async: false,
     });
   
-    // console.log( d bData )
+    // console.log( dbReplies )
     return dbReplies;
   };
 
@@ -54,6 +54,7 @@ let innerPostObject = getInnerPost(postKey)
 let printInnerPost = () => {
 
     let {content, createdDate, imageUrl, postId, title, userId } = innerPostObject;
+    let nada = `<ul> <li>que pedo</li> </ul>`
     let postHtml = `
     <div class="card d-flex w-100">
         <img src="${imageUrl}" class="card-img-top" style="max-height: 350px;">
@@ -85,7 +86,7 @@ let printInnerPost = () => {
                             </form>
                         </div>
 
-                        <div class="col-12 d-flex" id="repliesContainer">
+                        <div class="col-12" id="repliesContainer">
                             
 
                         </div>
@@ -115,12 +116,24 @@ for(key in replies){
 
 let printReplies = (repliesArray) => {
     repliesArray.forEach(element => {
-        let hache1 = `<p>${element.content}</p>`
-        $("#repliesContainer").append(hache1)
+        let repliesContent = `
+        <div class="d-flex col-12 mb-3">
+            <img class="rounded-circle" src="${fakeUser.imageUrl}"" style="width: 40px; height: 40px;">
+            <div class="ml-2 pl-3 col-10" style="border: 0.5px solid lightgray; border-radius: 8px;">
+                <span style="color: gray">${fakeUser.name}</span><br>
+                <p>${element.content}</p>
+            </div>
+            
+        </div>
+        `
+        $("#repliesContainer").append(repliesContent)
     });
 }
+
 // Función para imprimir los replies en el post que se encuentra
 printReplies(repliesArray)
+
+console.log(repliesArray)
 
 // Función para el dropdown de la imagen del usuario
 $(document).ready(function(){
