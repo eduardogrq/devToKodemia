@@ -50,6 +50,7 @@ const savePost = postData => {
         success: response => {
             console.log( response )
             $(`#addPostForm`)[0].reset();
+            alert("Nuevo Post Añadido")
         },
         error: error => {
             console.log( error )
