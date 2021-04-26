@@ -73,7 +73,7 @@ const getPosts = () => {
                 
             })
             let startDate = "01/01/2021";
-            let endDate = "12/31/2021";
+            let endDate = "12/30/2021";
             let filterDate = Object.values(response);
             let resultFilterData = filterDate.filter(
                 function (a)
@@ -82,7 +82,7 @@ const getPosts = () => {
                     });
             postArray =postArray.sort((x,y) =>  x.likes - y.likes)
             console.log
-            printPosts( resultFilterData, postArray)
+            printPosts( postArray)
         },
         error: error => {
             console.log( error )
@@ -218,7 +218,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <a href="../post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                        <a href="../post.html?postKey=${key}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 

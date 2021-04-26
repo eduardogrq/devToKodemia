@@ -66,12 +66,13 @@ const getPosts = () => {
             let  postArray= Object.keys(response).map( post =>{
                 return {
                     ...response[post],
-                    likes: response[post].likes || 0
+                    likes: response[post].likes || 0,
+                    key:post
                 }
                 
             })
             let startDate = "03/01/2021";
-            let endDate = "03/31/2021";
+            let endDate = "04/30/2021";
             let filterDate = Object.values(response);
             let resultFilterData = filterDate.filter(
                 function (a)
@@ -80,7 +81,7 @@ const getPosts = () => {
                     });
             postArray =postArray.sort((x,y) =>  x.likes - y.likes)
             console.log
-            printPosts( resultFilterData, postArray)
+            printPosts( postArray)
         },
         error: error => {
             console.log( error )
@@ -199,7 +200,7 @@ const printPosts = postCollection => {
 
     // $(".pets-wrapper").empty()
     postCollection.forEach( (post, index, array ) => {
-        let { postId, userId, content, title, createdDate, imageUrl, likes } = post
+        let { postId, userId, content, title, createdDate, imageUrl, likes, key } = post
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
@@ -216,7 +217,7 @@ const printPosts = postCollection => {
                             </div>
                         </div>
 
-                        <a href="../post.html?postKey=${post}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
+                        <a href="../post.html?postKey=${key}"> <h5 class="card-title pl-5" style="font-size: 1.7rem;"><b>${title}</b></h5> </a>
                             <p class="card-text gray-text pl-5" style="font-size: 0.9rem;">#Javascript #SQL #Technology #JS #CSS</p>
                             <div class="col-12 d-flex">
                                 
@@ -261,14 +262,3 @@ const goAddUser = () => {
 $('#search-button').click(goAddUser);
 
 /* ********SEARCH BAR*********** */
-
-
-/*let startDate = "03/01/2021";
-            let endDate = "03/31/2021";
-            let filterDate = Object.values(response);
-            let resultFilterData = filterDate.filter(
-                function (a)
-                    {
-                        return (a.createdDate) > startDate && (a.createdDate) < endDate;
-                    });
-                    */
