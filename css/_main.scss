@@ -58,3 +58,39 @@
     color: white;
     padding: 5px;
 }
+
+#addPostForm{
+    margin-top: 40px;
+}
+
+#btnAddPost{
+    background-color: #3b49df !important;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-top: 20px;
+}
+
+#btnSaveDraft{
+    background-color: #B5BDC4 !important;
+    color: black;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 8px 16px;
+    margin-top: 20px;
+}
+
+input#title.form-control{
+    font-size: 35px;
+    font-weight: bold;
+    border: 0;            
+    background: #F8F9FA;
+}
+
+input#content.form-control{
+    border: 0;            
+    background: #F8F9FA;
+}

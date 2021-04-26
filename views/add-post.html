@@ -103,24 +103,22 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-5">
-                <h3 class="text-center">Agregar Nuevo Post</h3>
-                <form class="m-5 border p-5 bg-white" id="addPostForm" >
-                    <div class="form-group">
-                      <label for="title">Título</label>
-                      <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="">
+            <div class="col-12 mt-2">
+                <form class="mb-4  px-5" id="addPostForm" >
+                    <div class="border rounded bg-light p-5">
+                        <div class="form-group">
+                            <input type="texto" class="form-control w-50" id="imageUrl" placeholder="Add a cover image">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="New post title here...">
+                        </div>
+                        <div class="form-group">
+                          <input type="texto" class="form-control pb-5" id="content" placeholder="Write your post content here...">
+                        </div>
+                        <!-- <input type="hidden" class="form-control" id="userId" placeholder=""> -->
                     </div>
-                    <div class="form-group">
-                      <label for="content">Contenido</label>
-                      <input type="texto" class="form-control" id="content" name="content" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="coverUrl">Imagen</label>
-                        <input type="texto" class="form-control" name="imageUrl" id="imageUrl" placeholder="">
-                    </div>
-                    <!-- <input type="hidden" class="form-control" id="userId" placeholder=""> -->
-    
-                    <button type="button" class="btn btn-primary" id="btnAddPost">Crear Post</button>
+                    <button type="button" class="btn btn-primary" id="btnAddPost">Publish</button>
+                    <button type="button" class="btn btn-secondary" id="btnSaveDraft">Save draft</button>
                 </form>
             </div>
         </div>

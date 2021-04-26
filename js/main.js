@@ -50,6 +50,7 @@ const savePost = postData => {
         success: response => {
             console.log( response )
             $(`#addPostForm`)[0].reset();
+            alert("Nuevo Post Añadido")
         },
         error: error => {
             console.log( error )
@@ -197,7 +198,7 @@ const printPosts = postCollection => {
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
-            <div class="item col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
+            <div class="item col-12 p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
                     ${image}
                     <div class="card-body" >
@@ -259,25 +260,25 @@ $('#search-button').click(goAddUser);
 $('#search-bar').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
-        $(location).attr("href", "./views/search.html");
+        $(location).attr("href", "/views/search.html");
     }
     event.stopPropagation();
 });
 
 $(document).ready(function(){
     $('#search-bar').keyup(function(){
-       var title = $('.title');
+       var titles = $('.title');
+       //donde guardo lo escrito en el input
        var buscando = $(this).val();
-       var item='';
-       for( var i = 0; i < title.length; i++ ){
-           item = $(title[i]).html().toLowerCase();
-           console.log( $(title[i]).parents('.item'));
-            if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
-                $(title[i]).parents('.item').show(); 
-            }else{
-                $(title[i]).parents('.item').hide(); 
+       var titlesToArray = titles.toArray()
+       
+       titlesToArray.forEach( (title) => {
+           
+            if (title.textContent.toLowerCase() == buscando.toLowerCase() || title.textContent.toLowerCase().indexOf(buscando)>= 0){
+                $(title).parents('.item').show(); 
+                }else{
+                    $(title).parents('.item').hide();   
             }
-            
-       }
+       })
     });
-  });
+});
