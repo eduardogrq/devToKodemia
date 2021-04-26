@@ -203,7 +203,7 @@ const printPosts = postCollection => {
         const image = index === array.length-1 ? `<img class="mw-100 border-radius-0" src="${imageUrl}">` : "" ;
 
             let postCard  = ` 
-            <div class="col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
+            <div class="item col-12 d-flex p-0 pl-md-2 pr-md-2 pb-2">
                 <div class="card d-flex w-100">
                     ${image}
                     <div class="card-body" >
