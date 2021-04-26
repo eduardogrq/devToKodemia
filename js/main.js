@@ -257,13 +257,13 @@ $('#search-button').click(goAddUser);
 
 /* ********SEARCH BAR*********** */
 
-$('#search-bar').keypress(function(event){
+/* $('#search-bar').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
         $(location).attr("href", "/views/search.html");
     }
     event.stopPropagation();
-});
+}); */
 
 $(document).ready(function(){
     $('#search-bar').keyup(function(){
